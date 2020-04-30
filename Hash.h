@@ -39,6 +39,7 @@ public:
     string get_value(); // Gets file value stored in node
     Node* get_next(); // Easier to traverse LL for evaluation
     void set_value(string newValue);
+    void set_next(Node* nextNode);
 };
 
 
@@ -56,7 +57,7 @@ public:
     Node* get_value(int index); // NOT SURE IF THIS FUNCTION IS NECESSARY
 
     unsigned long int hash_function(queue<string> stringSequence); // Function to hash words (may not be djb2)
-    void addNode(string, string); // Adds new node on the tail
+    void addNode(unsigned long int hashVal, string fileName); // Adds new node on the tail
 
     void printHash();
     ~Hash_Table();

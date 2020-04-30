@@ -56,10 +56,24 @@ include CMakeFiles/Cheaterz.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Cheaterz.dir/flags.make
 
+CMakeFiles/Cheaterz.dir/direcFileNames.cpp.obj: CMakeFiles/Cheaterz.dir/flags.make
+CMakeFiles/Cheaterz.dir/direcFileNames.cpp.obj: CMakeFiles/Cheaterz.dir/includes_CXX.rsp
+CMakeFiles/Cheaterz.dir/direcFileNames.cpp.obj: ../direcFileNames.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Kellan Cerveny\Desktop\EE312\3rdCharm\Cheaterz\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Cheaterz.dir/direcFileNames.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Cheaterz.dir\direcFileNames.cpp.obj -c "C:\Users\Kellan Cerveny\Desktop\EE312\3rdCharm\Cheaterz\direcFileNames.cpp"
+
+CMakeFiles/Cheaterz.dir/direcFileNames.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Cheaterz.dir/direcFileNames.cpp.i"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Kellan Cerveny\Desktop\EE312\3rdCharm\Cheaterz\direcFileNames.cpp" > CMakeFiles\Cheaterz.dir\direcFileNames.cpp.i
+
+CMakeFiles/Cheaterz.dir/direcFileNames.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Cheaterz.dir/direcFileNames.cpp.s"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Kellan Cerveny\Desktop\EE312\3rdCharm\Cheaterz\direcFileNames.cpp" -o CMakeFiles\Cheaterz.dir\direcFileNames.cpp.s
+
 CMakeFiles/Cheaterz.dir/driver.cpp.obj: CMakeFiles/Cheaterz.dir/flags.make
 CMakeFiles/Cheaterz.dir/driver.cpp.obj: CMakeFiles/Cheaterz.dir/includes_CXX.rsp
 CMakeFiles/Cheaterz.dir/driver.cpp.obj: ../driver.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Kellan Cerveny\Desktop\EE312\3rdCharm\Cheaterz\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Cheaterz.dir/driver.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Kellan Cerveny\Desktop\EE312\3rdCharm\Cheaterz\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Cheaterz.dir/driver.cpp.obj"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Cheaterz.dir\driver.cpp.obj -c "C:\Users\Kellan Cerveny\Desktop\EE312\3rdCharm\Cheaterz\driver.cpp"
 
 CMakeFiles/Cheaterz.dir/driver.cpp.i: cmake_force
@@ -73,7 +87,7 @@ CMakeFiles/Cheaterz.dir/driver.cpp.s: cmake_force
 CMakeFiles/Cheaterz.dir/fileread.cpp.obj: CMakeFiles/Cheaterz.dir/flags.make
 CMakeFiles/Cheaterz.dir/fileread.cpp.obj: CMakeFiles/Cheaterz.dir/includes_CXX.rsp
 CMakeFiles/Cheaterz.dir/fileread.cpp.obj: ../fileread.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Kellan Cerveny\Desktop\EE312\3rdCharm\Cheaterz\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Cheaterz.dir/fileread.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Kellan Cerveny\Desktop\EE312\3rdCharm\Cheaterz\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Cheaterz.dir/fileread.cpp.obj"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Cheaterz.dir\fileread.cpp.obj -c "C:\Users\Kellan Cerveny\Desktop\EE312\3rdCharm\Cheaterz\fileread.cpp"
 
 CMakeFiles/Cheaterz.dir/fileread.cpp.i: cmake_force
@@ -87,7 +101,7 @@ CMakeFiles/Cheaterz.dir/fileread.cpp.s: cmake_force
 CMakeFiles/Cheaterz.dir/Hash.cpp.obj: CMakeFiles/Cheaterz.dir/flags.make
 CMakeFiles/Cheaterz.dir/Hash.cpp.obj: CMakeFiles/Cheaterz.dir/includes_CXX.rsp
 CMakeFiles/Cheaterz.dir/Hash.cpp.obj: ../Hash.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Kellan Cerveny\Desktop\EE312\3rdCharm\Cheaterz\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Cheaterz.dir/Hash.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Kellan Cerveny\Desktop\EE312\3rdCharm\Cheaterz\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Cheaterz.dir/Hash.cpp.obj"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Cheaterz.dir\Hash.cpp.obj -c "C:\Users\Kellan Cerveny\Desktop\EE312\3rdCharm\Cheaterz\Hash.cpp"
 
 CMakeFiles/Cheaterz.dir/Hash.cpp.i: cmake_force
@@ -100,6 +114,7 @@ CMakeFiles/Cheaterz.dir/Hash.cpp.s: cmake_force
 
 # Object files for target Cheaterz
 Cheaterz_OBJECTS = \
+"CMakeFiles/Cheaterz.dir/direcFileNames.cpp.obj" \
 "CMakeFiles/Cheaterz.dir/driver.cpp.obj" \
 "CMakeFiles/Cheaterz.dir/fileread.cpp.obj" \
 "CMakeFiles/Cheaterz.dir/Hash.cpp.obj"
@@ -107,6 +122,7 @@ Cheaterz_OBJECTS = \
 # External object files for target Cheaterz
 Cheaterz_EXTERNAL_OBJECTS =
 
+Cheaterz.exe: CMakeFiles/Cheaterz.dir/direcFileNames.cpp.obj
 Cheaterz.exe: CMakeFiles/Cheaterz.dir/driver.cpp.obj
 Cheaterz.exe: CMakeFiles/Cheaterz.dir/fileread.cpp.obj
 Cheaterz.exe: CMakeFiles/Cheaterz.dir/Hash.cpp.obj
@@ -114,7 +130,7 @@ Cheaterz.exe: CMakeFiles/Cheaterz.dir/build.make
 Cheaterz.exe: CMakeFiles/Cheaterz.dir/linklibs.rsp
 Cheaterz.exe: CMakeFiles/Cheaterz.dir/objects1.rsp
 Cheaterz.exe: CMakeFiles/Cheaterz.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Kellan Cerveny\Desktop\EE312\3rdCharm\Cheaterz\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable Cheaterz.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Kellan Cerveny\Desktop\EE312\3rdCharm\Cheaterz\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Cheaterz.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Cheaterz.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

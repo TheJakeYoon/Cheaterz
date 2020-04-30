@@ -12,26 +12,9 @@
 #include <string>
 #include <queue>
 #include "Hash.h"
+#include "fileread.cpp"
 
 using namespace std;
-
-// Opens a directory path, makes a vector containing all of the file names inside the dir
-// Files 0 and 1 are . and .. respectively (current directory, parent directory)
-int getdir (string dir, vector<string> &files)
-{
-    DIR *dp;
-    struct dirent *dirp;
-    if((dp  = opendir(dir.c_str())) == NULL) {
-        cout << "Error(" << errno << ") opening " << dir << endl;
-        return errno;
-    }
-
-    while ((dirp = readdir(dp)) != NULL) {
-        files.push_back(string(dirp->d_name));
-    }
-    closedir(dp);
-    return 0;
-}
 
 // reads file and outputs one word at a time
 void readFile(string directory, string fileName)
@@ -108,35 +91,39 @@ void printSequences(string directory, string fileName, int seqLen){
 
 }
 
+
+
 // argv[1] -> string, directory path
 // argv[2] -> int, length of sequence
 // argv[3] -> int, number of overlapping occurrences between files
+
 int main(int argc, char* argv[]){
+
     int sequenceLength = atoi(argv[2]); // Length of the sequence
     int occurrences = atoi(argv[3]); // Threshold for minimum number of overlapping occurrences
     string dir = string(argv[1]); //argument when run, directory holding the text files
 
-    vector<string> files = vector<string>();
-    getdir(dir,files);
+    vector<string> files = vector<string>(); // Vector where we store the names of all files in "dir"
+    getdir(dir,files); //Populates the "files" vector with names of files in directory "dir"
 
-    cout << "Files in directory: " << dir << endl;
-    dir.append("\\"); // Append directory delimiter (escaped)
+    Hash_Table table(25 * 25); // How do we determine the size of the table?
+//    cout << table.get_value(2) << " Table at 2" << endl;
 
-    for (unsigned int i = 0;i < files.size();i++) {
-        cout << i << ": " << files[i] << endl;
-//        printSequence(dir, files[i], sequenceLength);
-    }
+    hashFiles(dir, files, sequenceLength, table); // hashes all N-length sequences of words from all text files in the given directory
+
+
+
+
+
+
+
+
+
+
+
+
 //    printSequence(dir, files[2], sequenceLength); // Prints only the first length 6 sequence of words in files[2]
 //    printSequences(dir, files[2], 10); // Prints ALL sequences of length 10 in files
-
-
-
-    Hash_Table table(25*25); // How do we determine the size of the table?
-    cout << table.get_value(2) << " Table at 2" << endl;
-
-    // hash all sequences in a single file
-
-
 
 	return 0;
 }

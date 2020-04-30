@@ -55,6 +55,20 @@ unsigned long int Hash_Table::hash_function(queue<string> stringSequence) {
     return hashVal;
 }
 
+void Hash_Table::addNode(unsigned long int hashKey, string fileName) {
+    Node* previousNode = NULL;
+    Node* currentNode = this->array[hashKey];
+
+    Node newNode(fileName); //Create our new node holding name of file
+
+    // Find the end of the LL at array[hashKey]
+    while (currentNode != NULL){
+        previousNode = currentNode;
+        currentNode = currentNode->get_next();
+    }
+    previousNode->set_next(&newNode);
+}
+
 // THIS FUNCTION MAY BE INSUFFICIENT FOR MILESTONE III
 // Prints out the files from which each hash came
 void Hash_Table::printHash() {
@@ -121,4 +135,8 @@ Node* Node::get_next() {
 
 void Node::set_value(string newValue) {
     this->value = newValue;
+}
+
+void Node::set_next(Node* nextNode) {
+    this->next = nextNode;
 }

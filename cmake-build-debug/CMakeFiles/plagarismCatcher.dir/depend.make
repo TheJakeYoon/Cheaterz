@@ -4,8 +4,10 @@
 CMakeFiles/plagarismCatcher.dir/Hash.cpp.obj: ../Hash.cpp
 CMakeFiles/plagarismCatcher.dir/Hash.cpp.obj: ../Hash.h
 
-CMakeFiles/plagarismCatcher.dir/direcFileNames.cpp.obj: ../direcFileNames.cpp
-
 CMakeFiles/plagarismCatcher.dir/driver.cpp.obj: ../Hash.h
 CMakeFiles/plagarismCatcher.dir/driver.cpp.obj: ../driver.cpp
+CMakeFiles/plagarismCatcher.dir/driver.cpp.obj: ../fileread.cpp
+
+CMakeFiles/plagarismCatcher.dir/fileread.cpp.obj: ../Hash.h
+CMakeFiles/plagarismCatcher.dir/fileread.cpp.obj: ../fileread.cpp
 

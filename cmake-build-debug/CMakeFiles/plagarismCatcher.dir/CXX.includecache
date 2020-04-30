@@ -47,4 +47,28 @@ queue
 -
 Hash.h
 C:/Users/Kellan Cerveny/Desktop/EE312/3rdCharm/Cheaterz/Hash.h
+fileread.cpp
+C:/Users/Kellan Cerveny/Desktop/EE312/3rdCharm/Cheaterz/fileread.cpp
+
+C:/Users/Kellan Cerveny/Desktop/EE312/3rdCharm/Cheaterz/fileread.cpp
+iostream
+-
+sys/types.h
+-
+fstream
+-
+cstdlib
+-
+dirent.h
+-
+errno.h
+-
+vector
+-
+string
+-
+queue
+-
+Hash.h
+C:/Users/Kellan Cerveny/Desktop/EE312/3rdCharm/Cheaterz/Hash.h
 

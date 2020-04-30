@@ -149,6 +149,33 @@ Hash.cpp.s:
 	$(MAKE) -f CMakeFiles\plagarismCatcher.dir\build.make CMakeFiles/plagarismCatcher.dir/Hash.cpp.s
 .PHONY : Hash.cpp.s
 
+direcFileNames.obj: direcFileNames.cpp.obj
+
+.PHONY : direcFileNames.obj
+
+# target to build an object file
+direcFileNames.cpp.obj:
+	$(MAKE) -f CMakeFiles\plagarismCatcher.dir\build.make CMakeFiles/plagarismCatcher.dir/direcFileNames.cpp.obj
+.PHONY : direcFileNames.cpp.obj
+
+direcFileNames.i: direcFileNames.cpp.i
+
+.PHONY : direcFileNames.i
+
+# target to preprocess a source file
+direcFileNames.cpp.i:
+	$(MAKE) -f CMakeFiles\plagarismCatcher.dir\build.make CMakeFiles/plagarismCatcher.dir/direcFileNames.cpp.i
+.PHONY : direcFileNames.cpp.i
+
+direcFileNames.s: direcFileNames.cpp.s
+
+.PHONY : direcFileNames.s
+
+# target to generate assembly for a file
+direcFileNames.cpp.s:
+	$(MAKE) -f CMakeFiles\plagarismCatcher.dir\build.make CMakeFiles/plagarismCatcher.dir/direcFileNames.cpp.s
+.PHONY : direcFileNames.cpp.s
+
 driver.obj: driver.cpp.obj
 
 .PHONY : driver.obj
@@ -215,6 +242,9 @@ help:
 	@echo ... Hash.obj
 	@echo ... Hash.i
 	@echo ... Hash.s
+	@echo ... direcFileNames.obj
+	@echo ... direcFileNames.i
+	@echo ... direcFileNames.s
 	@echo ... driver.obj
 	@echo ... driver.i
 	@echo ... driver.s
