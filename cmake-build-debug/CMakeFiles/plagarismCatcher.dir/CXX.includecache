@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Kellan Cerveny/Desktop/EE312/3rdCharm/Cheaterz/driver.cpp
+iostream
+-
+fstream
+-
+cstdlib
+-
+sys/types.h
+-
+dirent.h
+-
+cerrno
+-
+vector
+-
+string
+-
+queue
+-
+

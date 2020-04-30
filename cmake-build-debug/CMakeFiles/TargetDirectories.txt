@@ -1,0 +1,3 @@
+C:/Users/Kellan Cerveny/Desktop/EE312/3rdCharm/Cheaterz/cmake-build-debug/CMakeFiles/plagarismCatcher.dir
+C:/Users/Kellan Cerveny/Desktop/EE312/3rdCharm/Cheaterz/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Kellan Cerveny/Desktop/EE312/3rdCharm/Cheaterz/cmake-build-debug/CMakeFiles/rebuild_cache.dir
