@@ -48,8 +48,42 @@ void readFile(string directory, string fileName)
     }
 }
 
-// Prints all consecutive sequences of length N in a given .txt file
+// Prints first consecutive sequence of length N in a given .txt file
 void printSequence(string directory, string fileName, int seqLen){
+    ifstream file;
+    string toOpen = directory.append(fileName);
+    file.open(toOpen);
+    if (!file.is_open()) return; // Failure to open the file
+
+    string word; // receives words from file one at a time
+    queue<string> strQ; // Holds queue of words taken from file
+
+    int index = 0; // Creates our full-length queue
+    while (file >> word && index < seqLen){
+        strQ.push(word);
+        index ++;
+    }
+    while(!strQ.empty()){
+        cout << strQ.front() << " ";
+        strQ.pop();
+    }
+    cout << endl;
+
+}
+
+// Helper function for printSequenceS (all n-length)
+void printQueue(queue<string> seqQ){
+    // Print all words in first queue
+    queue<string> newQ = seqQ;
+    while(!newQ.empty()){
+        cout << newQ.front() << " ";
+        newQ.pop();
+    }
+    cout << endl;
+}
+
+// Prints ALL consecutive sequences of length N from a given .txt file
+void printSequences(string directory, string fileName, int seqLen){
     ifstream file;
     string toOpen = directory.append(fileName);
     file.open(toOpen);
@@ -63,14 +97,16 @@ void printSequence(string directory, string fileName, int seqLen){
         strQ.push(word);
         index ++;
     }
-    // Print all words in the queue
-    while(!strQ.empty()){
-        cout << strQ.front() << " ";
-        strQ.pop();
+    printQueue(strQ);
+
+    //Finish all other variations from the file
+    while (file >> word){
+        strQ.pop(); // Get rid of string at the front of the queue
+        strQ.push(word); // Add next read-in string to back
+        printQueue(strQ); // Print the new sequence
     }
 
 }
-
 
 int main(int argc, char* argv[]){
     cout << "Argc: " << argc << endl;
@@ -79,20 +115,26 @@ int main(int argc, char* argv[]){
     cout << argv[2] << endl;
     cout << argv[3] << endl;
 
+    int sequenceLength = atoi(argv[2]); // Length of the sequence
+    int occurrences = atoi(argv[3]); // Threshold for minimum number of overlapping occurrences
+
 
     // Prints the names of all of the files in the directory "dir" (from string argument)
     string dir = string(argv[1]); //argument when run, directory holding the text files
     vector<string> files = vector<string>();
     getdir(dir,files);
-    cout << "Files in directory: " << dir << endl;
-    for (unsigned int i = 0;i < files.size();i++) {
-        cout << i << ": " << files[i] << endl;
-    }
 
-    // Open and read from contents of file
+    cout << "Files in directory: " << dir << endl;
     dir.append("\\"); // Append directory delimiter (escaped)
 
-    printSequence(dir, files[2], 10);
+    for (unsigned int i = 0;i < files.size();i++) {
+        cout << i << ": " << files[i] << endl;
+        printSequence(dir, files[i], sequenceLength);
+    }
+
+
+//    printSequence(dir, files[2], sequenceLength); // Prints only the first length 6 sequence of words in files[2]
+//    printSequences(dir, files[2], 10); // Prints ALL sequences of length 10 in files
 
 	return 0;
 }
