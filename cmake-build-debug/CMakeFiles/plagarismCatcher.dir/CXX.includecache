@@ -6,6 +6,26 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/Kellan Cerveny/Desktop/EE312/3rdCharm/Cheaterz/Hash.h
+iostream
+-
+fstream
+-
+cstdlib
+-
+sys/types.h
+-
+dirent.h
+-
+cerrno
+-
+vector
+-
+string
+-
+queue
+-
+
 C:/Users/Kellan Cerveny/Desktop/EE312/3rdCharm/Cheaterz/driver.cpp
 iostream
 -
@@ -25,4 +45,6 @@ string
 -
 queue
 -
+Hash.h
+C:/Users/Kellan Cerveny/Desktop/EE312/3rdCharm/Cheaterz/Hash.h
 

@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(.)
 
 add_executable(plagarismCatcher
-        direcFileNames.cpp
         driver.cpp
+        fileread.cpp
         Hash.cpp
         Hash.h)

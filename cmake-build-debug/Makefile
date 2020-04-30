@@ -149,33 +149,6 @@ Hash.cpp.s:
 	$(MAKE) -f CMakeFiles\plagarismCatcher.dir\build.make CMakeFiles/plagarismCatcher.dir/Hash.cpp.s
 .PHONY : Hash.cpp.s
 
-direcFileNames.obj: direcFileNames.cpp.obj
-
-.PHONY : direcFileNames.obj
-
-# target to build an object file
-direcFileNames.cpp.obj:
-	$(MAKE) -f CMakeFiles\plagarismCatcher.dir\build.make CMakeFiles/plagarismCatcher.dir/direcFileNames.cpp.obj
-.PHONY : direcFileNames.cpp.obj
-
-direcFileNames.i: direcFileNames.cpp.i
-
-.PHONY : direcFileNames.i
-
-# target to preprocess a source file
-direcFileNames.cpp.i:
-	$(MAKE) -f CMakeFiles\plagarismCatcher.dir\build.make CMakeFiles/plagarismCatcher.dir/direcFileNames.cpp.i
-.PHONY : direcFileNames.cpp.i
-
-direcFileNames.s: direcFileNames.cpp.s
-
-.PHONY : direcFileNames.s
-
-# target to generate assembly for a file
-direcFileNames.cpp.s:
-	$(MAKE) -f CMakeFiles\plagarismCatcher.dir\build.make CMakeFiles/plagarismCatcher.dir/direcFileNames.cpp.s
-.PHONY : direcFileNames.cpp.s
-
 driver.obj: driver.cpp.obj
 
 .PHONY : driver.obj
@@ -203,6 +176,33 @@ driver.cpp.s:
 	$(MAKE) -f CMakeFiles\plagarismCatcher.dir\build.make CMakeFiles/plagarismCatcher.dir/driver.cpp.s
 .PHONY : driver.cpp.s
 
+fileread.obj: fileread.cpp.obj
+
+.PHONY : fileread.obj
+
+# target to build an object file
+fileread.cpp.obj:
+	$(MAKE) -f CMakeFiles\plagarismCatcher.dir\build.make CMakeFiles/plagarismCatcher.dir/fileread.cpp.obj
+.PHONY : fileread.cpp.obj
+
+fileread.i: fileread.cpp.i
+
+.PHONY : fileread.i
+
+# target to preprocess a source file
+fileread.cpp.i:
+	$(MAKE) -f CMakeFiles\plagarismCatcher.dir\build.make CMakeFiles/plagarismCatcher.dir/fileread.cpp.i
+.PHONY : fileread.cpp.i
+
+fileread.s: fileread.cpp.s
+
+.PHONY : fileread.s
+
+# target to generate assembly for a file
+fileread.cpp.s:
+	$(MAKE) -f CMakeFiles\plagarismCatcher.dir\build.make CMakeFiles/plagarismCatcher.dir/fileread.cpp.s
+.PHONY : fileread.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -215,12 +215,12 @@ help:
 	@echo ... Hash.obj
 	@echo ... Hash.i
 	@echo ... Hash.s
-	@echo ... direcFileNames.obj
-	@echo ... direcFileNames.i
-	@echo ... direcFileNames.s
 	@echo ... driver.obj
 	@echo ... driver.i
 	@echo ... driver.s
+	@echo ... fileread.obj
+	@echo ... fileread.i
+	@echo ... fileread.s
 .PHONY : help
 
 

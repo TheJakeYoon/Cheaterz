@@ -11,7 +11,7 @@
 #include <vector>
 #include <string>
 #include <queue>
-
+#include "Hash.h"
 
 using namespace std;
 
@@ -108,19 +108,14 @@ void printSequences(string directory, string fileName, int seqLen){
 
 }
 
+// argv[1] -> string, directory path
+// argv[2] -> int, length of sequence
+// argv[3] -> int, number of overlapping occurrences between files
 int main(int argc, char* argv[]){
-    cout << "Argc: " << argc << endl;
-    cout << argv[0] << endl;
-    cout << argv[1] << endl;
-    cout << argv[2] << endl;
-    cout << argv[3] << endl;
-
     int sequenceLength = atoi(argv[2]); // Length of the sequence
     int occurrences = atoi(argv[3]); // Threshold for minimum number of overlapping occurrences
-
-
-    // Prints the names of all of the files in the directory "dir" (from string argument)
     string dir = string(argv[1]); //argument when run, directory holding the text files
+
     vector<string> files = vector<string>();
     getdir(dir,files);
 
@@ -129,12 +124,19 @@ int main(int argc, char* argv[]){
 
     for (unsigned int i = 0;i < files.size();i++) {
         cout << i << ": " << files[i] << endl;
-        printSequence(dir, files[i], sequenceLength);
+//        printSequence(dir, files[i], sequenceLength);
     }
-
-
 //    printSequence(dir, files[2], sequenceLength); // Prints only the first length 6 sequence of words in files[2]
 //    printSequences(dir, files[2], 10); // Prints ALL sequences of length 10 in files
+
+
+
+    Hash_Table table(25*25); // How do we determine the size of the table?
+    cout << table.get_value(2) << " Table at 2" << endl;
+
+    // hash all sequences in a single file
+
+
 
 	return 0;
 }

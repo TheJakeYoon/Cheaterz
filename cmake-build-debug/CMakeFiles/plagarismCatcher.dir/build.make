@@ -56,24 +56,10 @@ include CMakeFiles/plagarismCatcher.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/plagarismCatcher.dir/flags.make
 
-CMakeFiles/plagarismCatcher.dir/direcFileNames.cpp.obj: CMakeFiles/plagarismCatcher.dir/flags.make
-CMakeFiles/plagarismCatcher.dir/direcFileNames.cpp.obj: CMakeFiles/plagarismCatcher.dir/includes_CXX.rsp
-CMakeFiles/plagarismCatcher.dir/direcFileNames.cpp.obj: ../direcFileNames.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Kellan Cerveny\Desktop\EE312\3rdCharm\Cheaterz\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/plagarismCatcher.dir/direcFileNames.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\plagarismCatcher.dir\direcFileNames.cpp.obj -c "C:\Users\Kellan Cerveny\Desktop\EE312\3rdCharm\Cheaterz\direcFileNames.cpp"
-
-CMakeFiles/plagarismCatcher.dir/direcFileNames.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/plagarismCatcher.dir/direcFileNames.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Kellan Cerveny\Desktop\EE312\3rdCharm\Cheaterz\direcFileNames.cpp" > CMakeFiles\plagarismCatcher.dir\direcFileNames.cpp.i
-
-CMakeFiles/plagarismCatcher.dir/direcFileNames.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/plagarismCatcher.dir/direcFileNames.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Kellan Cerveny\Desktop\EE312\3rdCharm\Cheaterz\direcFileNames.cpp" -o CMakeFiles\plagarismCatcher.dir\direcFileNames.cpp.s
-
 CMakeFiles/plagarismCatcher.dir/driver.cpp.obj: CMakeFiles/plagarismCatcher.dir/flags.make
 CMakeFiles/plagarismCatcher.dir/driver.cpp.obj: CMakeFiles/plagarismCatcher.dir/includes_CXX.rsp
 CMakeFiles/plagarismCatcher.dir/driver.cpp.obj: ../driver.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Kellan Cerveny\Desktop\EE312\3rdCharm\Cheaterz\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/plagarismCatcher.dir/driver.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Kellan Cerveny\Desktop\EE312\3rdCharm\Cheaterz\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/plagarismCatcher.dir/driver.cpp.obj"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\plagarismCatcher.dir\driver.cpp.obj -c "C:\Users\Kellan Cerveny\Desktop\EE312\3rdCharm\Cheaterz\driver.cpp"
 
 CMakeFiles/plagarismCatcher.dir/driver.cpp.i: cmake_force
@@ -83,6 +69,20 @@ CMakeFiles/plagarismCatcher.dir/driver.cpp.i: cmake_force
 CMakeFiles/plagarismCatcher.dir/driver.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/plagarismCatcher.dir/driver.cpp.s"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Kellan Cerveny\Desktop\EE312\3rdCharm\Cheaterz\driver.cpp" -o CMakeFiles\plagarismCatcher.dir\driver.cpp.s
+
+CMakeFiles/plagarismCatcher.dir/fileread.cpp.obj: CMakeFiles/plagarismCatcher.dir/flags.make
+CMakeFiles/plagarismCatcher.dir/fileread.cpp.obj: CMakeFiles/plagarismCatcher.dir/includes_CXX.rsp
+CMakeFiles/plagarismCatcher.dir/fileread.cpp.obj: ../fileread.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Kellan Cerveny\Desktop\EE312\3rdCharm\Cheaterz\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/plagarismCatcher.dir/fileread.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\plagarismCatcher.dir\fileread.cpp.obj -c "C:\Users\Kellan Cerveny\Desktop\EE312\3rdCharm\Cheaterz\fileread.cpp"
+
+CMakeFiles/plagarismCatcher.dir/fileread.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/plagarismCatcher.dir/fileread.cpp.i"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Kellan Cerveny\Desktop\EE312\3rdCharm\Cheaterz\fileread.cpp" > CMakeFiles\plagarismCatcher.dir\fileread.cpp.i
+
+CMakeFiles/plagarismCatcher.dir/fileread.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/plagarismCatcher.dir/fileread.cpp.s"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Kellan Cerveny\Desktop\EE312\3rdCharm\Cheaterz\fileread.cpp" -o CMakeFiles\plagarismCatcher.dir\fileread.cpp.s
 
 CMakeFiles/plagarismCatcher.dir/Hash.cpp.obj: CMakeFiles/plagarismCatcher.dir/flags.make
 CMakeFiles/plagarismCatcher.dir/Hash.cpp.obj: CMakeFiles/plagarismCatcher.dir/includes_CXX.rsp
@@ -100,15 +100,15 @@ CMakeFiles/plagarismCatcher.dir/Hash.cpp.s: cmake_force
 
 # Object files for target plagarismCatcher
 plagarismCatcher_OBJECTS = \
-"CMakeFiles/plagarismCatcher.dir/direcFileNames.cpp.obj" \
 "CMakeFiles/plagarismCatcher.dir/driver.cpp.obj" \
+"CMakeFiles/plagarismCatcher.dir/fileread.cpp.obj" \
 "CMakeFiles/plagarismCatcher.dir/Hash.cpp.obj"
 
 # External object files for target plagarismCatcher
 plagarismCatcher_EXTERNAL_OBJECTS =
 
-plagarismCatcher.exe: CMakeFiles/plagarismCatcher.dir/direcFileNames.cpp.obj
 plagarismCatcher.exe: CMakeFiles/plagarismCatcher.dir/driver.cpp.obj
+plagarismCatcher.exe: CMakeFiles/plagarismCatcher.dir/fileread.cpp.obj
 plagarismCatcher.exe: CMakeFiles/plagarismCatcher.dir/Hash.cpp.obj
 plagarismCatcher.exe: CMakeFiles/plagarismCatcher.dir/build.make
 plagarismCatcher.exe: CMakeFiles/plagarismCatcher.dir/linklibs.rsp
