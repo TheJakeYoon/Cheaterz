@@ -22,8 +22,15 @@ unsigned int Hash_Table::get_size() {
 }
 
 // UNTESTED AND UNWORKING
-Node* Hash_Table::get_value(int index) {
-    return NULL;
+// Get
+vector<int> Hash_Table::get_values(int tableIndex) {
+    vector<int> fileIndices; // Vector of indices of files with hash at tableIndex
+    hashNode* entry = this->array[tableIndex];
+    while (entry != NULL){
+        fileIndices.push_back(entry->value);
+        entry = entry->next;
+    }
+    return fileIndices;
 }
 
 
@@ -54,15 +61,15 @@ unsigned long int Hash_Table::hash_function(queue<string> stringSequence) {
     }
 
     // Modulo the hashVal by a prime number to determine placement in Hash_Table
-    hashVal = hashVal % (25*25*25); // UNCLEAR IF THIS IS APPROPRIATE, MAY NEED TO VARIABLIZE
+    hashVal = hashVal % (25*25*25*5); // UNCLEAR IF THIS IS APPROPRIATE, MAY NEED TO VARIABLIZE
     return hashVal;
 }
 
-void Hash_Table::addNode(unsigned long int hashKey, string fileName) {
+void Hash_Table::addNode(unsigned long int hashKey, unsigned int fileIndex) {
     // Create a new value node in the array
     hashNode* currentNode = this->array[hashKey];
     hashNode* newNode = new hashNode;
-    newNode->value = fileName;
+    newNode->value = fileIndex;
     newNode->next = NULL;
 
     if (this->array[hashKey] == NULL) this->array[hashKey] = newNode;
@@ -83,10 +90,8 @@ void Hash_Table::printHash() {
 
     for (int i = 0; i < this->size; ++i) {
         cout << "INDEX " << i << "| ";
-        newLineFlag = false; // Flag down initially
         temp = this->array[i];
         while (temp != NULL){
-            newLineFlag = true; // Put the flag up
             cout << temp->value << ", ";
             temp = temp->next;
         }
