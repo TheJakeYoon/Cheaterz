@@ -88,9 +88,6 @@
 		<Unit filename="C:/Users/Kellan Cerveny/Desktop/EE312/3rdCharm/Cheaterz/Hash.h">
 			<Option target="plagarismCatcher"/>
 		</Unit>
-		<Unit filename="C:/Users/Kellan Cerveny/Desktop/EE312/3rdCharm/Cheaterz/direcFileNames.cpp">
-			<Option target="plagarismCatcher"/>
-		</Unit>
 		<Unit filename="C:/Users/Kellan Cerveny/Desktop/EE312/3rdCharm/Cheaterz/driver.cpp">
 			<Option target="plagarismCatcher"/>
 		</Unit>

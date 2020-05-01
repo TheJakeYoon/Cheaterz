@@ -24,6 +24,44 @@ using namespace std;
  * - Outputs the files with a high number of collisions in a table
  */
 
+// Helper function for printSequenceS (all n-length)
+void printQueue(queue<string> seqQ){
+    // Print all words in first queue
+    queue<string> newQ = seqQ;
+    while(!newQ.empty()){
+        cout << newQ.front() << " ";
+        newQ.pop();
+    }
+    cout << endl;
+}
+
+// Prints ALL consecutive sequences of length N from a given .txt file
+void printSequences(string directory, string fileName, int seqLen){
+    ifstream file;
+    string toOpen = directory.append(fileName);
+    file.open(toOpen);
+    if (!file.is_open()) return; // Failure to open the file
+
+    string word; // receives words from file one at a time
+    queue<string> strQ; // Holds queue of words taken from file
+
+    int index = 0;
+    while (file >> word && index < seqLen){
+        strQ.push(word);
+        index ++;
+    }
+    printQueue(strQ);
+
+    //Finish all other variations from the file
+    while (file >> word){
+        strQ.pop(); // Get rid of string at the front of the queue
+        strQ.push(word); // Add next read-in string to back
+        printQueue(strQ); // Print the new sequence
+    }
+
+}
+
+
 // Opens a directory path, makes and populates a vector containing all of the file names inside the dir
 // Files 0 and 1 are . and .. respectively (current directory, parent directory)
 int getdir (string dir, vector<string> &files)
@@ -57,14 +95,16 @@ void hashQueue(queue<string> seqQ){
 // hashes ALL consecutive sequences of length N from a given .txt file
 // Adds hashes to hash table
 // Input: directory where .txt files held, length of sequence to hash, hash table by reference
-void hashFile(const string directory,const string fileName,const int seqLen, Hash_Table hash_table){
+void hashFile(string directory,string fileName, int seqLen, Hash_Table &hash_table){
 
     ifstream file;
     string toOpen = directory; // Need to loop through all the file names in "files" variable
     toOpen.append(fileName);
     file.open(toOpen);
-    if (!file.is_open()) return; // Failure to open the file
-
+    if (!file.is_open()){
+//        cout << "Unable to open file: " << toOpen << endl;
+        return;
+    }
     string word; // receives words from file one at a time
     queue<string> strQ; // Holds queue of words taken from file
     unsigned long int hashValue;
@@ -74,7 +114,7 @@ void hashFile(const string directory,const string fileName,const int seqLen, Has
         strQ.push(word);
         index ++;
     }
-
+//    printQueue(strQ); // DEBUGGING TOOL
     hashValue = hash_table.hash_function(strQ); // return hash value of string queue
     hash_table.addNode(hashValue, fileName); // Makes a new node in hash table with hashValue, stores fileName
 
@@ -89,18 +129,16 @@ void hashFile(const string directory,const string fileName,const int seqLen, Has
 
 //Function: hashes all N-length sequences of words from all text files in the given directory
 //Input: directory files are stored in, vector of all file names, length of sequence we are searching for, hash table we deposit the results in
-void hashFiles(string dir, vector<string> files, int seqLen, Hash_Table hash_table){
+void hashFiles(string dir, vector<string> files, int seqLen, Hash_Table& hash_table){
 
-    cout << "Files in directory: " << dir << endl; // DEBUGGING STATEMENT ####################################
+    cout << "Search files in directory: " << dir << endl; // DEBUGGING STATEMENT ####################################
     string direct = dir;
     direct.append("\\"); // Append directory delimiter (escaped) for fopen() later
 
     // Hash sequences of length N in all files in dir
     for (unsigned int i = 0;i < files.size();i++) {
-        cout << i << ": " << files[i] << endl;
+//        cout << i << ": " << files[i] << endl; // DEBUGGING: Outputs file name and index
         hashFile(direct, files[i], seqLen, hash_table);
     }
-
-    cout << "All files have been hashed." << endl;
 }
 

@@ -3,6 +3,9 @@
 // Priebe 312
 // 30 April 2020
 
+#ifndef INCLUDE_HASH_H
+#define INCLUDE_HASH_H
+
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
@@ -48,8 +51,13 @@ public:
 class Hash_Table
 {
 private:
+    struct hashNode {
+        string value;
+        hashNode* next;
+    };
     unsigned int size; // HOW DO WE DETERMINE WHAT IS AN APPROPRIATE SIZE FOR THE TABLE?
-    vector<Node*> array;
+    vector<hashNode*> array;
+
 public:
     Hash_Table(unsigned int tableSize); // must be constructed using calculated size
 
@@ -63,4 +71,4 @@ public:
     ~Hash_Table();
 };
 
-
+#endif

@@ -21,8 +21,8 @@ int getdir (string dir, vector<string> &files);
 
 void hashQueue(queue<string> seqQ);
 
-void hashFile(const string directory,const string fileName,const int seqLen, Hash_Table hash_table);
+void hashFile(const string directory,const string fileName,const int seqLen, Hash_Table &hash_table);
 
-void hashFiles(string dir, vector<string> files, int seqLen, Hash_Table hash_table);
+void hashFiles(string dir, vector<string> files, int seqLen, Hash_Table &hash_table);
 
 

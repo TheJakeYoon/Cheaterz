@@ -26,18 +26,18 @@ string
 queue
 -
 
-C:/Users/Kellan Cerveny/Desktop/EE312/3rdCharm/Cheaterz/driver.cpp
+C:/Users/Kellan Cerveny/Desktop/EE312/3rdCharm/Cheaterz/fileread.cpp
 iostream
+-
+sys/types.h
 -
 fstream
 -
 cstdlib
 -
-sys/types.h
--
 dirent.h
 -
-cerrno
+errno.h
 -
 vector
 -
@@ -45,12 +45,10 @@ string
 -
 queue
 -
-Hash.h
-C:/Users/Kellan Cerveny/Desktop/EE312/3rdCharm/Cheaterz/Hash.h
-fileread.cpp
-C:/Users/Kellan Cerveny/Desktop/EE312/3rdCharm/Cheaterz/fileread.cpp
+fileread.h
+C:/Users/Kellan Cerveny/Desktop/EE312/3rdCharm/Cheaterz/fileread.h
 
-C:/Users/Kellan Cerveny/Desktop/EE312/3rdCharm/Cheaterz/fileread.cpp
+C:/Users/Kellan Cerveny/Desktop/EE312/3rdCharm/Cheaterz/fileread.h
 iostream
 -
 sys/types.h

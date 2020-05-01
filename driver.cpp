@@ -11,8 +11,9 @@
 #include <vector>
 #include <string>
 #include <queue>
+
 #include "Hash.h"
-#include "fileread.cpp"
+#include "fileread.h"
 
 using namespace std;
 
@@ -54,43 +55,6 @@ void printSequence(string directory, string fileName, int seqLen){
 
 }
 
-// Helper function for printSequenceS (all n-length)
-void printQueue(queue<string> seqQ){
-    // Print all words in first queue
-    queue<string> newQ = seqQ;
-    while(!newQ.empty()){
-        cout << newQ.front() << " ";
-        newQ.pop();
-    }
-    cout << endl;
-}
-
-// Prints ALL consecutive sequences of length N from a given .txt file
-void printSequences(string directory, string fileName, int seqLen){
-    ifstream file;
-    string toOpen = directory.append(fileName);
-    file.open(toOpen);
-    if (!file.is_open()) return; // Failure to open the file
-
-    string word; // receives words from file one at a time
-    queue<string> strQ; // Holds queue of words taken from file
-
-    int index = 0;
-    while (file >> word && index < seqLen){
-        strQ.push(word);
-        index ++;
-    }
-    printQueue(strQ);
-
-    //Finish all other variations from the file
-    while (file >> word){
-        strQ.pop(); // Get rid of string at the front of the queue
-        strQ.push(word); // Add next read-in string to back
-        printQueue(strQ); // Print the new sequence
-    }
-
-}
-
 
 
 // argv[1] -> string, directory path
@@ -106,14 +70,11 @@ int main(int argc, char* argv[]){
     vector<string> files = vector<string>(); // Vector where we store the names of all files in "dir"
     getdir(dir,files); //Populates the "files" vector with names of files in directory "dir"
 
-    Hash_Table table(25 * 25); // How do we determine the size of the table?
-//    cout << table.get_value(2) << " Table at 2" << endl;
+    Hash_Table table(25*25*25); // How do we determine the size of the table?
 
     hashFiles(dir, files, sequenceLength, table); // hashes all N-length sequences of words from all text files in the given directory
 
-
-
-
+//    table.printHash(); // DEBUGGING TOOL
 
 
 

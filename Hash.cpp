@@ -10,9 +10,10 @@
 using namespace std;
 
 // HASH_TABLE CLASS FUNCTIONS
+// ###########################################################################
 Hash_Table::Hash_Table(unsigned int tableSize) {
     size = tableSize; // tableSize needs to be correctly calculated in advance
-    vector<Node*> table(tableSize);// Set all pointers in the array to NULL to show they are unused
+    vector<hashNode*> table(tableSize);// Set all pointers in the array to NULL to show they are unused
     array = table;
 }
 
@@ -20,9 +21,11 @@ unsigned int Hash_Table::get_size() {
     return this->size;
 }
 
+// UNTESTED AND UNWORKING
 Node* Hash_Table::get_value(int index) {
-    return this->array[index];
+    return NULL;
 }
+
 
 // Function: returns the addition of ASCII values of each char in a string
 // Input: string
@@ -44,63 +47,65 @@ unsigned long int Hash_Table::hash_function(queue<string> stringSequence) {
     string current;
 
     // Multiply the ASCII value of each word by a weight (N, N-1, ... , 1)
-    for (int i = qLen; i >= 0; i--) {
+    for (int i = qLen; i > 0; i--) {
         current = stringSequence.front(); // pull front word out of queue
         stringSequence.pop(); // Pop this value off queue
         hashVal += i * StringToASCII(current);
     }
 
     // Modulo the hashVal by a prime number to determine placement in Hash_Table
-    hashVal = hashVal % 599; // UNCLEAR IF THIS IS APPROPRIATE, MAY NEED TO VARIABLIZE
+    hashVal = hashVal % (25*25*25); // UNCLEAR IF THIS IS APPROPRIATE, MAY NEED TO VARIABLIZE
     return hashVal;
 }
 
 void Hash_Table::addNode(unsigned long int hashKey, string fileName) {
-    Node* previousNode = NULL;
-    Node* currentNode = this->array[hashKey];
+    // Create a new value node in the array
+    hashNode* currentNode = this->array[hashKey];
+    hashNode* newNode = new hashNode;
+    newNode->value = fileName;
+    newNode->next = NULL;
 
-    Node newNode(fileName); //Create our new node holding name of file
-
-    // Find the end of the LL at array[hashKey]
-    while (currentNode != NULL){
-        previousNode = currentNode;
-        currentNode = currentNode->get_next();
+    if (this->array[hashKey] == NULL) this->array[hashKey] = newNode;
+    else{
+        while(currentNode->next != NULL){
+            currentNode = currentNode->next;
+        }
+        currentNode->next = newNode;
     }
-    previousNode->set_next(&newNode);
 }
 
+// UNTESTED ############################################
 // THIS FUNCTION MAY BE INSUFFICIENT FOR MILESTONE III
 // Prints out the files from which each hash came
 void Hash_Table::printHash() {
-    Node* currentNode = NULL;
-    Node* nextNode = NULL;
+    hashNode* temp = NULL;
     bool newLineFlag;
 
-    for (unsigned int i = 0; i < this->size; ++i) {
+    for (int i = 0; i < this->size; ++i) {
+        cout << "INDEX " << i << "| ";
         newLineFlag = false; // Flag down initially
-        currentNode = array[i];
-        while (currentNode != NULL){
+        temp = this->array[i];
+        while (temp != NULL){
             newLineFlag = true; // Put the flag up
-            nextNode = currentNode->get_next();
-            cout << currentNode->get_value() << ", ";
-            currentNode = nextNode;
+            cout << temp->value << ", ";
+            temp = temp->next;
         }
-        if (newLineFlag) cout << endl; // Prints carriage return when we have file vals
+        cout << endl; // Prints carriage return when we have file vals
     }
 }
 
 // Delete all Node objects in the table
 Hash_Table::~Hash_Table() {
-    Node* currentNode = NULL;
-    Node* nextNode = NULL; // Used to delete all nodes in LL
+    hashNode* current = NULL;
+    hashNode* next = NULL;
 
     for (unsigned int i = 0; i < this->size; ++i) {
-        currentNode = array[i];
+        current = array[i];
         // Loop through the LL to delete all the nodes
-        while (currentNode != NULL){
-            nextNode = currentNode->get_next();
-            delete(currentNode);
-            currentNode = nextNode;
+        while (current != NULL){
+            next = current->next;
+            delete(current);
+            current = next;
         }
     }
 }
