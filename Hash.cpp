@@ -4,6 +4,7 @@
 // 30 April 2020
 
 #include "Hash.h"
+#include "math.h"
 #include <iostream>
 #include <cstdlib>
 
@@ -11,13 +12,17 @@ using namespace std;
 
 // HASH_TABLE CLASS FUNCTIONS
 // ###########################################################################
-Hash_Table::Hash_Table(unsigned int tableSize) {
-    size = tableSize; // tableSize needs to be correctly calculated in advance
-    vector<hashNode*> table(tableSize);// Set all pointers in the array to NULL to show they are unused
+Hash_Table::Hash_Table(unsigned int sequenceLength) {
+    unsigned long hashtablecount = 42949672;
+    for(int i = 0; i < sequenceLength; i++){
+        //hashtablecount += pow(29.0, sequenceLength);
+    }
+    size = hashtablecount; // tableSize needs to be correctly calculated in advance
+    vector<hashNode*> table(hashtablecount);// Set all pointers in the array to NULL to show they are unused
     array = table;
 }
 
-unsigned int Hash_Table::get_size() {
+unsigned long Hash_Table::get_size() {
     return this->size;
 }
 
@@ -26,6 +31,7 @@ unsigned int Hash_Table::get_size() {
 vector<int> Hash_Table::get_values(int tableIndex) {
     vector<int> fileIndices; // Vector of indices of files with hash at tableIndex
     hashNode* entry = this->array[tableIndex];
+    //cout << "Entry value " << &array[tableIndex]->value << endl;
     while (entry != NULL){
         fileIndices.push_back(entry->value);
         entry = entry->next;
@@ -40,7 +46,12 @@ unsigned int StringToASCII(string word){
     int strLen = word.length();
     unsigned int ascii = 0;
     for (int i = 0; i < strLen; ++i) {
-        ascii += word[i];
+        if(word[i] >= 65 && word[i] <= 90){
+            ascii += (word[i]-64) * pow(26, i);
+        }
+        else if((word[i] >= 97 && word[i] <= 122)){
+            ascii += (word[i]-96) * pow(26, i);
+        }
     }
     return ascii;
 }
@@ -48,30 +59,30 @@ unsigned int StringToASCII(string word){
 // Function: Accepts a sequence of strings, and hashes to return the index to store the **originating file name**
 // Input: Sequence of N words from input file
 // Output: returns the index that the filename will be stored in
-unsigned long int Hash_Table::hash_function(queue<string> stringSequence) {
+unsigned long Hash_Table::hash_function(queue<string> stringSequence) {
     int qLen = stringSequence.size();
-    unsigned long int hashVal = 0;
+    unsigned long hashVal = 0;
     string current;
 
     // Multiply the ASCII value of each word by a weight (N, N-1, ... , 1)
     for (int i = qLen; i > 0; i--) {
         current = stringSequence.front(); // pull front word out of queue
         stringSequence.pop(); // Pop this value off queue
-        hashVal += i * StringToASCII(current);
+        hashVal += (pow(29.0, (i-1)) * StringToASCII(current));
     }
 
     // Modulo the hashVal by a prime number to determine placement in Hash_Table
-    hashVal = hashVal % (25*25*25*5); // UNCLEAR IF THIS IS APPROPRIATE, MAY NEED TO VARIABLIZE
+    hashVal = hashVal % 42949672; // UNCLEAR IF THIS IS APPROPRIATE, MAY NEED TO VARIABLIZE
     return hashVal;
 }
 
-void Hash_Table::addNode(unsigned long int hashKey, unsigned int fileIndex) {
+void Hash_Table::addNode(unsigned long hashKey, unsigned int fileIndex) {
     // Create a new value node in the array
     hashNode* currentNode = this->array[hashKey];
     hashNode* newNode = new hashNode;
     newNode->value = fileIndex;
     newNode->next = NULL;
-
+    //cout << "CurrentNode hashkey " << this->array[hashKey] << " newNodevalue " << newNode->value << endl;
     if (this->array[hashKey] == NULL) this->array[hashKey] = newNode;
     else{
         while(currentNode->next != NULL){
@@ -86,7 +97,7 @@ void Hash_Table::addNode(unsigned long int hashKey, unsigned int fileIndex) {
 // Prints out the files from which each hash came
 void Hash_Table::printHash() {
     hashNode* temp = NULL;
-    bool newLineFlag;
+    //bool newLineFlag;
 
     for (int i = 0; i < this->size; ++i) {
         cout << "INDEX " << i << "| ";

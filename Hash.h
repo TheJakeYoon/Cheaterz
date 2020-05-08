@@ -40,20 +40,21 @@ class Hash_Table
 {
 private:
     struct hashNode {
-        int value; //Index of the file
+        float value; //Index of the file
         hashNode* next;
     };
-    unsigned int size; // HOW DO WE DETERMINE WHAT IS AN APPROPRIATE SIZE FOR THE TABLE?
+    unsigned long size; // HOW DO WE DETERMINE WHAT IS AN APPROPRIATE SIZE FOR THE TABLE?
     vector<hashNode*> array;
 
 public:
-    Hash_Table(unsigned int tableSize); // must be constructed using calculated size
 
-    unsigned int get_size();
+    Hash_Table(unsigned int sequenceLength); // must be constructed using calculated size
+
+    unsigned long get_size();
     vector<int> get_values(int index); // NOT SURE IF THIS FUNCTION IS NECESSARY
 
-    unsigned long int hash_function(queue<string> stringSequence); // Function to hash words (may not be djb2)
-    void addNode(unsigned long int hashVal, unsigned int fileIndex); // Adds new node on the tail
+    unsigned long hash_function(queue<string> stringSequence); // Function to hash words (may not be djb2)
+    void addNode(unsigned long hashVal, unsigned int fileIndex); // Adds new node on the tail
 
     void printHash();
     ~Hash_Table();

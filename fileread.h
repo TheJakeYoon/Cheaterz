@@ -29,3 +29,8 @@ void populateMatrix(Hash_Table &hashTable, vector<vector<int>> &frequencies);
 
 void printFrequencies(const int occurrences, vector<vector<int>> collisionsMatrix, vector<string> files);
 
+void merge(int arr[], string name[], int l, int m, int r);
+
+void mergeSort(int arr[], string name[], int l, int r);
+
+void printSortedFrequencies(const int occurrences, vector<vector<int>> collisionsMatrix, vector<string> files);

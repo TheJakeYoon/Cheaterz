@@ -38,6 +38,8 @@ int getdir (string dir, vector<string> &files)
     while ((dirp = readdir(dp)) != NULL) {
         files.push_back(string(dirp->d_name));
     }
+    // need to remove . and ..
+    files.erase(files.begin(), files.begin() + 2);
     closedir(dp);
     return 0;
 }
@@ -52,7 +54,7 @@ void hashFile(string directory,string fileName, unsigned int fileIndex, int seqL
     toOpen.append(fileName);
     file.open(toOpen);
     if (!file.is_open()){
-//        cout << "Unable to open file: " << toOpen << endl;
+        cout << "Unable to open file: " << toOpen << endl;
         return; // Default return current and parent directory
     }
     string word; // receives words from file one at a time
@@ -64,10 +66,11 @@ void hashFile(string directory,string fileName, unsigned int fileIndex, int seqL
         strQ.push(word);
         index ++;
     }
-//    printQueue(strQ); // DEBUGGING TOOL
+    //printQueue(strQ); // DEBUGGING TOOL
     hashValue = hash_table.hash_function(strQ); // return hash value of string queue
+    //cout << "HashValue     " << hashValue << "      ";
     hash_table.addNode(hashValue, fileIndex); // Makes a new node in hash table with hashValue, stores fileName
-
+    //cout << hast_table.at(hash_table.get_values(fileIndex)) << endl;
     //Finish all other variations from the file
     while (file >> word){
         strQ.pop(); // Get rid of string at the front of the queue
@@ -81,11 +84,13 @@ void hashFile(string directory,string fileName, unsigned int fileIndex, int seqL
 //Input: directory files are stored in, vector of all file names, length of sequence we are searching for, hash table we deposit the results in
 void hashFiles(string dir, vector<string> files, int seqLen, Hash_Table& hash_table){
     string direct = dir;
-    direct.append("\\"); // Append directory delimiter (escaped) for fopen() later
+    //direct.append("\\"); // Append directory delimiter (escaped) for fopen() later
 
+    //cout << direct << endl;
+    //cout << files.size() << endl;
     // Hash sequences of length N in all files in dir
     for (unsigned int i = 0;i < files.size();i++) {
-//        cout << i << ": " << files[i] << endl; // DEBUGGING: Outputs file name and index
+        //cout << i << ": " << files[i] << endl; // DEBUGGING: Outputs file name and index
         hashFile(direct, files[i], i, seqLen, hash_table);
     }
 }
@@ -124,7 +129,7 @@ void populateMatrix(Hash_Table &hashTable, vector<vector<int>> &frequencies){
     int col;
 
     // Iterate through the hash table, plot frequencies of overlap
-    for (int i = 0; i < 25*25*25*5; ++i) {
+    for (int i = 0; i < (42949672); ++i) {
         // When hash table is not empty, add fileIndex values to matrix
         if(!hashTable.get_values(i).empty()){
             collisions = hashTable.get_values(i);
@@ -137,6 +142,7 @@ void populateMatrix(Hash_Table &hashTable, vector<vector<int>> &frequencies){
 
                     // DO WE NEED TO REMOVE REPEAT COLLISIONS WITH OTHER FILES?
                     if (collisions[j] != collisions[k]){
+                        //cout << collisions[j] << " " << collisions[k] << endl;
                         frequencies[row][col] ++; //Add a collision between two files
                     }
                 }
@@ -163,3 +169,109 @@ void printFrequencies(const int occurrences, vector<vector<int>> collisionsMatri
         }
     }
 }
+// ******************************************
+// Print Sorted Array Using MergeSort
+
+void merge(int arr[], int l, int m, int r)
+{
+    int i, j, k;
+    int n1 = m - l + 1;
+    int n2 =  r - m;
+
+    /* create temp arrays */
+    int L[n1], R[n2];
+
+    /* Copy data to temp arrays L[] and R[] */
+    for (i = 0; i < n1; i++)
+        L[i] = arr[l + i];
+    for (j = 0; j < n2; j++)
+        R[j] = arr[m + 1+ j];
+
+    /* Merge the temp arrays back into arr[l..r]*/
+    i = 0; // Initial index of first subarray
+    j = 0; // Initial index of second subarray
+    k = l; // Initial index of merged subarray
+    while (i < n1 && j < n2)
+    {
+        if (L[i] <= R[j])
+        {
+            arr[k] = L[i];
+            i++;
+        }
+        else
+        {
+            arr[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+
+    /* Copy the remaining elements of L[], if there
+       are any */
+    while (i < n1)
+    {
+        arr[k] = L[i];
+        i++;
+        k++;
+    }
+
+    /* Copy the remaining elements of R[], if there
+       are any */
+    while (j < n2)
+    {
+        arr[k] = R[j];
+        j++;
+        k++;
+    }
+}
+
+/* l is for left index and r is right index of the
+   sub-array of arr to be sorted */
+void mergeSort(int arr[], int l, int r)
+{
+    if (l < r)
+    {
+        // Same as (l+r)/2, but avoids overflow for
+        // large l and h
+        int m = l+(r-l)/2;
+
+        // Sort first and second halves
+        mergeSort(arr, l, m);
+        mergeSort(arr, m+1, r);
+
+        merge(arr, l, m, r);
+    }
+}
+void printSortedFrequencies(const int occurrences, vector<vector<int>> collisionsMatrix, vector<string> files){
+
+    int sortedArray[(collisionsMatrix.size()*collisionsMatrix.size())/2];
+    int size = 0;
+    for (unsigned int i = 0; i < collisionsMatrix.size(); ++i) {
+        for (unsigned int j = i; j < collisionsMatrix.size(); ++j) {
+
+            if (collisionsMatrix[i][j] >= occurrences){
+                sortedArray[size] = collisionsMatrix[i][j];
+                size++;
+
+            }
+        }
+    }
+
+    //MergeSort
+
+    size--;
+    mergeSort(sortedArray, 0, size);
+    cout << "Sorted Array" << endl;
+    while(size > 0){
+        for (int i = 0; i < collisionsMatrix.size(); ++i) {
+            for (int j = i; j < collisionsMatrix.size(); ++j) {
+                    if (collisionsMatrix[i][j] == sortedArray[size] && sortedArray[size] > occurrences) {
+                        cout << sortedArray[size];
+                        cout << ": " << files[i] << ", " << files[j] << endl;
+                        size--;
+                    }
+                }
+            }
+        }
+}
+
